@@ -764,4 +764,8 @@ public class TestPlayer implements Player {
     public boolean isValid() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    public void setLocation(Location location) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

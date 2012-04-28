@@ -3,6 +3,7 @@ package org.bukkit;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.AnimalTamer;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.permissions.ServerOperator;
 
 public interface OfflinePlayer extends ServerOperator, AnimalTamer, ConfigurationSerializable {
@@ -93,4 +94,37 @@ public interface OfflinePlayer extends ServerOperator, AnimalTamer, Configuratio
      */
     public Location getBedSpawnLocation();
 
+    /**
+     * Set this players bed spawn location.
+     * @param location the location at which the players bed spawn will be set.
+     */
+    public void setBedSpawnLocation(Location location);
+
+    /**
+     * Get the player's inventory. This inventory will not save upon modification, it must be saved using the saveInventory() method.
+     * This inventory will also have a null owner.
+     *
+     * @return The inventory of the player, this also contains the armor slots.
+     */
+    public PlayerInventory getInventory();
+
+    /**
+     * Save this (offline) player's inventory to disk. This method must be
+     * called after making any changes to the getInventory() returned inventory, if you wish to keep any changes.
+     */
+    public void updateInventory();
+
+     /**
+     * Gets the last Location where the player was before he logged out of the server.
+     *
+     * @return Last Location of the player.
+     */
+    public Location getLocation();
+
+    /**
+     * Sets the location of this offline player. When the player next logs in they will be at this location;
+     *
+     * @param location The new location for this player.
+     */
+    public void setLocation(Location location);
 }
